@@ -1,8 +1,14 @@
 from django.contrib import admin
-from django.urls import path
-from book.views import get_all_books
+from django.urls import path, include
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('books/', get_all_books),
-]
+from django.conf.urls.static import static
+from django.conf import settings
+urlpatterns = (
+        [
+            path('admin/', admin.site.urls),
+            path('',include('book.urls')),
+            path('',include('bookshow.urls'))
+        ] + static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+        +static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+)
