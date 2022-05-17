@@ -10,7 +10,7 @@
         {%for bookshow in shows%}
         <li>
             <img src="{{ bookshow.img.url }}" alt="">
-            <h2>{{bookshow.title}}</h2>
+            <h2><a href="/bookshow/{{bookshow.id}}/">{{bookshow.title}}</a></h2>
         </li>
 
         {% endfor%}
