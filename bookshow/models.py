@@ -13,7 +13,7 @@ class Bookshows(models.Model):
     )
     title = models.CharField(max_length=100)
     description = models.TextField()
-    img = models.ImageField(upload_to="static/media",blank=True)
+    img = models.ImageField(upload_to="")
     created_date = models.DateField(auto_now_add=True)
     updated_date = models.DateField(auto_now=True)
     author = models.CharField(max_length=100)

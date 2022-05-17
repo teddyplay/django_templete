@@ -9,14 +9,8 @@
     <ul>
         {%for bookshow in shows%}
         <li>
-            <img src="{{ bookshow.image.url }}" alt="">
+            <img src="{{ bookshow.img.url }}" alt="">
             <h2>{{bookshow.title}}</h2>
-            <p>{{bookshow.description}}</p>
-            <p>{{bookshow.author}}</p>
-            <p>{{bookshow.genre}}</p>
-            <p>{{bookshow.tom}}</p>
-            <p>{{bookshow.created_date}}</p>
-            <p>{{bookshow.updated_date}}</p>
         </li>
 
         {% endfor%}
