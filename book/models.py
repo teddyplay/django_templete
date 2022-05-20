@@ -9,3 +9,7 @@ class Book(models.Model): # TODO называть модели во множес
     created_date = models.DateField(auto_now_add=True)
     updated_date = models.DateField(auto_now=True)
     author = models.CharField(max_length=100)
+
+
+
+
