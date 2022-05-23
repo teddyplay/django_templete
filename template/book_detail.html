@@ -25,14 +25,22 @@
 
     }
     .shows__container{
-
-
         object-fit: fill;
     }
     .btn-primary{
         height: 40px;
     }
+
+    .butons{
+
+
+    }
 </style>
+<div class="container butons">
+    <a href="/bookshow/" type="button" class="btn btn-outline-success">Back</a>
+    <a href="/bookshow/{{show.id}}/update/" class="btn btn-outline-success show_button">Update</a>
+    <a href="/bookshow/{{show.id}}/delete/" class="btn btn-outline-success show_button">Delete</a>
+</div>
 
 <div class="container shows__container">
         <img src="{{show.img.url}}" class="detail__img" alt="">
@@ -43,7 +51,6 @@
         <p>{{show.tom}}</p>
         <p>{{show.created_date}}</p>
         <p>{{show.updated_date}}</p>
-        <a href="/bookshow/" class="btn btn-primary">Back</a>
 
  </div>
 </body>

@@ -22,6 +22,7 @@
         height: 250px;
         margin-top: 40px;
 
+
     }
 
     .bloksssss{
@@ -29,13 +30,28 @@
 
     }
     .pacage{
-
         object-fit: fill;
         background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
     }
 
-</style>
+    .col-3 {
+        height: 400px;
+    }
 
+
+</style>
+<a href="/add_book/" class="btn btn-outline-success show_button">Create new book</a>
+
+<div class="container">
+    <a href="/bookshow/" type="button" class="btn btn-outline-success">All</a>
+    <a href="/bookshow/latest/" type="button" class="btn btn-outline-success">latest</a>
+    <a href="/bookshow/Fantazy/" type="button" class="btn btn-outline-success">Fantazy</a>
+    <a href="/bookshow/Detective/" type="button" class="btn btn-outline-success">Detective</a>
+    <a href="/bookshow/Humor/" type="button" class="btn btn-outline-success">Humor</a>
+    <a href="/bookshow/Roman/" type="button" class="btn btn-outline-success">Roman</a>
+    <a href="/bookshow/Adveture/" type="button" class="btn btn-outline-success">Adveture</a>
+    <a href="/bookshow/Science_fiction/" type="button" class="btn btn-outline-success">Science_fiction</a>
+</div>
 <div class="container shows__container">
     <div class="row gy-5">
         {%for show in shows%}

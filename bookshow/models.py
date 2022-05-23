@@ -5,11 +5,11 @@ from django.db import models
 class Bookshows(models.Model):
     GENRE_CHOICE = (
         ("Fantazy","Fantazy"),
-        ("Falklor", "Falklor"),
         ("Detective", "Detective"),
         ("Humor", "Humor"),
         ("Roman", "Roman"),
-        ("Adveture", "Adveture")
+        ("Adveture", "Adveture"),
+        ("Science_fiction","Science_fiction")
     )
     title = models.CharField(max_length=100)
     description = models.TextField()
