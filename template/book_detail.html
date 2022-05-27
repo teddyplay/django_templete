@@ -38,20 +38,33 @@
 </style>
 <div class="container butons">
     <a href="/bookshow/" type="button" class="btn btn-outline-success">Back</a>
-    <a href="/bookshow/{{show.id}}/update/" class="btn btn-outline-success show_button">Update</a>
-    <a href="/bookshow/{{show.id}}/delete/" class="btn btn-outline-success show_button">Delete</a>
+    <a href="/bookshow/{{object.id}}/update/" class="btn btn-outline-success show_button">Update</a>
+    <a href="/bookshow/{{object.id}}/delete/" class="btn btn-outline-success show_button">Delete</a>
 </div>
 
 <div class="container shows__container">
-        <img src="{{show.img.url}}" class="detail__img" alt="">
-        <h2>{{show.title}}</h2>
-        <p>{{show.description}}</p>
-        <p>{{show.author}}</p>
-        <p>{{show.genre}}</p>
-        <p>{{show.tom}}</p>
-        <p>{{show.created_date}}</p>
-        <p>{{show.updated_date}}</p>
+        <img src="{{object.img.url}}" class="detail__img" alt="">
+        <h2>{{object.title}}</h2>
+        <p>{{object.description}}</p>
+        <p>{{object.author}}</p>
+        <p>{{object.genre}}</p>
+        <p>{{object.tom}}</p>
+        <p>{{object.created_date}}</p>
+        <p>{{object.updated_date}}</p>
+        <div class="card-body">
+            <h2>Comments:</h2>
+            <ul>
+                {% for comment in object.book_shows_comment.all %}
+                <li>
+                    <p>Username: {{comment.user.username}}</p>
+                    <p>Text: {{comment.text}}</p>
 
+                </li>
+                {% endfor %}
+            </ul>
+
+        </div>
  </div>
+
 </body>
 </html>

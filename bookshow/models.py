@@ -23,3 +23,25 @@ class Bookshows(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Shows_user(models.Model):
+    username = models.CharField(max_length=255)
+    def __str__(self):
+        return self.username
+
+
+class ShowComment(models.Model):
+    show = models.ForeignKey(Bookshows,
+                             on_delete=models.CASCADE,
+                             related_name="book_shows_comment")
+    user = models.ForeignKey(Shows_user,
+                             on_delete=models.CASCADE,
+                             related_name="shows_user",
+                             null=True)
+    text = models.TextField()
+    created_date = models.DateField(auto_now_add=True)
+    update_date = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.show.title
