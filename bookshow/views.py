@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect,reverse
 from . import models,forms
+import scrapy
 from datetime import datetime,timedelta
 from django.views import generic
 start_date = datetime.today() - timedelta(days=5)
@@ -11,6 +12,8 @@ class BookshowListViesw(generic.ListView):
 
     def get_queryset(self):
         return self.queryset
+
+
 
 
 # def bookshow(request):
