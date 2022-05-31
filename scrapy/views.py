@@ -19,9 +19,17 @@ class ParserFormView(generic.FormView):
 
 
 
-class ParserListView(generic.ListView):
+class ParserListViewWatchs(generic.ListView):
     template_name = 'index.html'
-    queryset = models.Watchs.object.all()
+    queryset = models.Watchs.objects.all()
+
+    def get_queryset(self):
+        return self.queryset
+
+
+class ParserListViewTechnodom(generic.ListView):
+    template_name = 'technodom.html'
+    queryset = models.Tehchnodom.objects.all()
 
     def get_queryset(self):
         return self.queryset

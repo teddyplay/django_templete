@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from django.views.decorators.csrf import csrf_exempt
 
 HOST = "https://chasy.kg/"
-HOST2 = "https://lalafo.kg/"
+HOST3 = "https://new.technodom.kg/category/229"
 
 HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -49,32 +49,43 @@ def parser_func_watch():
         raise  Exception("Error in parsr function")
 
 
-@csrf_exempt
-def get_data_lalafo(html):
-    soup = BeautifulSoup(html,"html.parser")
-    items = soup.find_all('article',class_="adTile-wrap")
-    lalafo = []
-    for item in items:
-        lalafo.append(
-            {
-                "image": item.find('div').find('svg').get('xmlns'),
-                "price": item.find('p',class_='adTile-price').get_text(),
-                "title": 'http:/' + item.find('div').find('a').get('href'),
-                "link":'http:/' + item.find('div').find('a').get('href')
-            }
-        )
-    return lalafo
+
 
 # html = get_html(HOST2)
 # get_data_lalafo(html.text)
 
+
+
 @csrf_exempt
-def parser_func_lalafo():
-    html = get_html(HOST2)
+def get_data_tehnodom(html):
+    soup = BeautifulSoup(html,"html.parser")
+    items = soup.find_all('div',class_="common__recommendations__list__item one-four")
+    tehnodom = []
+
+    for item in items:
+        tehnodom.append(
+            {
+                'image': item.find('div').find('a').get('data-background-image'),
+                'title': item.find('div',class_='common__recommendations__list__item__title').get_text(strip=True),
+                "price": item.find('div',class_='common__recommendations__list__item__price').get_text(strip=True)
+
+
+
+            }
+
+
+        )
+    return tehnodom
+
+@csrf_exempt
+def parser_func_technodom():
+    html = get_html(HOST3)
     if html.status_code == 200:
-        lalafo = []
+        tehnodom = []
         for i in range(0,1):
-            lalafo.extend(get_data_lalafo(html.text))
-            return lalafo
+            tehnodom.extend(get_data_tehnodom(html.text))
+            return tehnodom
     else:
-        raise  Exception("Error in parsr function lalafo")
+        raise  Exception("Error in parsr function technodom")
+
+

@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Watchs</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css/' %}"/>
+    <title>Technkdom</title>
 </head>
-<body>
 <style>
       body{
         background: #0f0c29;  /* fallback for old browsers */
@@ -16,7 +13,8 @@
     }
     .shows__img{
         height: 250px;
-        object-fit: fill;
+        margin-right: 100px;
+        margin-left: 450px;
     }
     .shows__container{
         height: 250px;
@@ -29,7 +27,8 @@
 
     }
     .pacage{
-        object-fit: fill;
+        margin-left: 200px;
+        margin-right: 230px;
         background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
     }
 
@@ -39,15 +38,16 @@
 
 </style>
 <div class="container button__container">
-    <a href="/parser" class="btn btn-outline-success">Parser</a>
+    <a href="/parser" type="button" class="btn btn-outline-success">Parser</a>
 </div>
 <div class="container posts__container">
     <div class="row gy-5">
         {% for i in object_list%}
         <div class="col-3">
-            <div class="card">
+            <div class="card aaa">
                 <img class="card-img-top shows__img" src="{{i.image}}" alt="Card image cap">
                 <div class="card-body pacage">
+                    <p class="card-title">{{ i.price }}</p>
                     <p class="card-title">{{ i.title }}</p>
                     <a class="card-title">{{ i.link }}</a>
                 </div>
