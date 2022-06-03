@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 HOST = "https://chasy.kg/"
 HOST3 = "https://new.technodom.kg/category/229"
+HOST2 = ""
 
 HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -87,5 +88,4 @@ def parser_func_technodom():
             return tehnodom
     else:
         raise  Exception("Error in parsr function technodom")
-
 
