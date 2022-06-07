@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0003_remove_customuser_birth_date'),
+        ("users", "0003_remove_customuser_birth_date"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='customuser',
-            name='age',
+            model_name="customuser",
+            name="age",
             field=models.DateField(null=True),
         ),
     ]

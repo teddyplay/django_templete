@@ -1,10 +1,12 @@
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404, redirect,reverse
-from . import models,forms
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from . import models, forms
 import scrapy
-from datetime import datetime,timedelta
+from datetime import datetime, timedelta
 from django.views import generic
+
 start_date = datetime.today() - timedelta(days=5)
+
 
 class BookshowListViesw(generic.ListView):
     template_name = "bookshow.html"
@@ -12,8 +14,6 @@ class BookshowListViesw(generic.ListView):
 
     def get_queryset(self):
         return self.queryset
-
-
 
 
 # def bookshow(request):
@@ -27,10 +27,11 @@ class BookshowDetailView(generic.DetailView):
     def get_object(self, **kwargs):
         show_id = self.kwargs.get("id")
         return get_object_or_404(models.Bookshows, id=show_id)
+
+
 # def book_show_detail(request,id):
 #     object = get_object_or_404(models.Bookshows,id=id)
 #     return render(request,"book_detail.html",{"show":object})
-
 
 
 class BookshowCreatedateView(generic.CreateView):
@@ -41,7 +42,8 @@ class BookshowCreatedateView(generic.CreateView):
 
     def form_valid(self, form):
         print(form.cleaned_data)
-        return super(BookshowCreatedateView,self).form_valid(form=form)
+        return super(BookshowCreatedateView, self).form_valid(form=form)
+
 
 # def add_book_user(request):
 #     method = request.method
@@ -55,16 +57,19 @@ class BookshowCreatedateView(generic.CreateView):
 #         form = forms.Form_for_bookshow()
 #     return render(request, "add_shows.html", {"form": form})
 
+
 class BookUpdateView(generic.UpdateView):
     template_name = "book_update.html"
     form_class = forms.Form_for_bookshow
     success_url = "/bookshows/"
+
     def get_object(self, **kwargs):
         show_id = self.kwargs.get("id")
-        return get_object_or_404(models.Bookshows,id=show_id)
+        return get_object_or_404(models.Bookshows, id=show_id)
 
     def form_valid(self, form):
         print(form.cleaned_data)
+
 
 # def book_update(request,id):
 #     book_object = get_object_or_404(models.Bookshows,id = id)
@@ -78,18 +83,20 @@ class BookUpdateView(generic.UpdateView):
 #     return render(request,"book_update.html",{"form":form,
 #                                                 "object":book_object})
 
+
 class BookDeleteView(generic.DeleteView):
     success_url = "/bookshow/"
     template_name = "confirm_delete_book.html"
 
     def get_object(self, **kwargs):
         show_id = self.kwargs.get("id")
-        return get_object_or_404(models.Bookshows,id=show_id)
+        return get_object_or_404(models.Bookshows, id=show_id)
+
+
 # def book_delete(request, id):
 #     book_object = get_object_or_404(models.Bookshows, id=id)
 #     book_object.delete()
 #     return redirect(reverse("shows_url:bookshow_all_url"))
-
 
 
 # def books_latest(request):
