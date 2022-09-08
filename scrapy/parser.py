@@ -37,6 +37,8 @@ def get_data_watch(html):
     return watch
 
 
+
+
 @csrf_exempt
 def parser_func_watch():
     html = get_html(HOST)
@@ -72,7 +74,8 @@ def get_data_tehnodom(html):
             }
         )
     return tehnodom
-
+# html = get_html(HOST3)
+# print(get_data_tehnodom(html.text))
 
 @csrf_exempt
 def parser_func_technodom():

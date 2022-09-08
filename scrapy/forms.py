@@ -5,7 +5,6 @@ from django import forms
 class PerserForm(forms.Form):
     MEDIA_CHOICE = (
         ("Watchs", "Watchs"),
-        ("Lalafo", "Lalafo"),
         ("Technodom", "Technodom"),
     )
     media_type = forms.ChoiceField(choices=MEDIA_CHOICE)
@@ -24,8 +23,3 @@ class PerserForm(forms.Form):
             technodom_parser = parser.parser_func_technodom()
             for data in technodom_parser:
                 models.Tehchnodom.objects.create(**data)
-
-            # if models.Plants.objects.filter(user=user).exists():
-            #     pass
-            # else:
-            #     models.Plants.objects.create(user=user, count=count_number)

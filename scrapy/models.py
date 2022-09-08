@@ -22,7 +22,7 @@ class Tehchnodom(models.Model):
 
     image = models.ImageField(upload_to="")
     title = models.CharField(max_length=255)
-    price = models.PositiveIntegerField(max_length=100)
+    price = models.CharField(max_length=100,null=True)
 
     def __str__(self):
         return self.title
